@@ -1,4 +1,20 @@
-#include "LinkedList.h"
+#include "stdio.h"
+#include "stdlib.h"
+
+typedef unsigned char uint8;
+typedef unsigned short int uint16;
+typedef unsigned int uint32;
+
+typedef signed char sint8;
+typedef signed short int sint16;
+typedef signed int sint32;
+
+
+typedef struct s
+{
+    uint32 data;
+    struct s* next;
+}Node;
 
 Node** Creat_List(void)
 {
@@ -193,4 +209,23 @@ void Length(Node** list)
 		ptr=ptr->next;
 	}
 	printf("Length = [ %d ]\n",i);
+}
+
+int main ()
+{
+	Node** list1;
+	list1 = Creat_List();
+	InsertToList(list1,10,0);
+	InsertToList(list1,20,1);
+	InsertToList(list1,30,2);
+
+	PrintList(list1);
+
+    Reverse(list1);
+
+    PrintList(list1);
+
+    Length(list1);
+
+
 }
